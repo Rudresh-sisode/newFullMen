@@ -9,3 +9,4 @@
       title:'First',content:'this is the first post content'
     }
   ]*/
+CORS-> Cross Origin Resource Sharing

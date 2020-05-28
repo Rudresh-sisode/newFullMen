@@ -1,0 +1,11 @@
+ /*posts=[
+    {
+      title:'First',content:'this is the first post content'
+    },
+    {
+      title:'First',content:'this is the first post content'
+    },
+    {
+      title:'First',content:'this is the first post content'
+    }
+  ]*/

@@ -23,8 +23,14 @@ constructor(private http:HttpClient){}
 
   addPost(title:string,content:string){
     const post:Post={id:null,title:title,content:content};
-    this.posts.push(post);
-    this.postsUpdated.next([...this.posts]);
+    this.http.post<{message:string,posts:Post}>("http://localhost:3000/api/posts",post)
+    .subscribe((responseData)=>{
+      console.log(responseData.message);
+      console.log(responseData.posts)
+      this.posts.push(post);
+      this.postsUpdated.next([...this.posts]);
+    })
+
   }
 
 }

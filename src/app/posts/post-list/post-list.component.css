@@ -1,7 +1,8 @@
-:host{
+:host {
   display: block;
   margin-top: 1rem;
 }
-p{
+
+.info-text {
   text-align: center;
 }

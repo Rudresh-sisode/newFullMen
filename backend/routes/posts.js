@@ -1,9 +1,10 @@
 const express= require('express');
+const Post = require("../models/model");
 
 const router = express.Router();
 
 
-router.post("/api/posts", (req, res, next) => {
+router.post("", (req, res, next) => {
   const post = new Post({
     title: req.body.title,
     content: req.body.content
@@ -17,7 +18,7 @@ router.post("/api/posts", (req, res, next) => {
 
 });
 
-router.get("/api/posts", (req, res, next) => {
+router.get("", (req, res, next) => {
   Post.find().then(documents => {
     res.status(200).json({
       message: "Posts fetched successfully!",
@@ -26,7 +27,7 @@ router.get("/api/posts", (req, res, next) => {
   });
 });
 
-router.get("/api/posts/:id",(req,res,next)=>{
+router.get("/:id",(req,res,next)=>{
   Post.findById(req.params.id).then(post=>{
     if(post){
       res.status(200).json(
@@ -44,7 +45,7 @@ router.get("/api/posts/:id",(req,res,next)=>{
   })
 })
 
-router.delete("/api/posts/:id", (req, res, next) => {
+router.delete("/:id", (req, res, next) => {
   console.log("the id is ",req.params.id)
   Post.deleteOne({ _id: req.params.id }).then(result => {
     console.log(result);
@@ -53,7 +54,7 @@ router.delete("/api/posts/:id", (req, res, next) => {
   });
 });
 
-router.put("/api/posts/:id",(req,res)=>{
+router.put("/:id",(req,res)=>{
   const post = new Post({
     _id:req.body.id,
     title:req.body.title,
@@ -65,3 +66,5 @@ router.put("/api/posts/:id",(req,res)=>{
     res.status(201).json({message:"update Successfully"})
   })
 })
+
+module.exports = router;

@@ -34,6 +34,10 @@ export class PostsService {
     //spread operator
   }
 
+  getPost(id:string){
+    return {...this.posts.find(p => p.id === id)}
+  }
+
   getPostUpdateListener(){
     return this.postsUpdated.asObservable()
   }

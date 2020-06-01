@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { Post } from "../post.model";
 import { PostsService } from "../post.service";
 
+
 @Component({
   selector: "app-post-list",
   templateUrl: "./post-list.component.html",
